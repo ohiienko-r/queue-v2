@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
+    source-sans-pro, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--foreground);
+  background-color: var(--background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --background: #07090e;
+  --background-secondary: #0f1116;
+  --foreground: #e5e7f1;
+  --primary: #a2afcc;
+  --secondary: #623968;
+  --accent: #b577aa;
+}
+
+#root {
+  width: 100svw;
+  height: 100dvh;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+}

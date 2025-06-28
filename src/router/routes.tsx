@@ -3,7 +3,7 @@ import { ROUTES_NAMES } from "./data";
 
 import { AuthLayout, RootLayout } from "../layouts";
 
-import { LoginPage, CreateItemPage } from "../pages";
+import { LoginPage, CreateItemPage, NotFoundPage } from "../pages";
 
 export function UserRoutes() {
   return (
@@ -17,6 +17,8 @@ export function UserRoutes() {
         <Route index element={<Navigate to={ROUTES_NAMES.LOGIN} />} />
         <Route path={ROUTES_NAMES.LOGIN} element={<LoginPage />} />
       </Route>
+
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

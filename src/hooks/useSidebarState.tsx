@@ -10,5 +10,5 @@ export default function useSidebarState() {
     localStorage.setItem("sidebar-state", JSON.stringify(sidebarCollapsed));
   }, [sidebarCollapsed]);
 
-  return [sidebarCollapsed, setSidebarCollapsed];
+  return { sidebarCollapsed, setSidebarCollapsed };
 }

@@ -8,13 +8,13 @@ import UserIcon from "../icons/UserIcon";
 import LogOutIcon from "../icons/LogOutIcon";
 
 export default function Sidebar() {
-  const [sidebarCollapsed, setSidebarCollapsed] = useSidebarState();
+  const { sidebarCollapsed, setSidebarCollapsed } = useSidebarState();
 
   return (
     <aside
       className={clsx(
         "flex flex-col gap-4 bg-background-secondary p-4 rounded-xl h-full transition-[width]",
-        sidebarCollapsed ? "w-16 justify-center" : "w-60"
+        sidebarCollapsed ? "w-16 justify-center" : "w-72"
       )}
     >
       <header
@@ -71,11 +71,11 @@ export default function Sidebar() {
 
           <button
             className={clsx(
-              "hover:opacity-60 transition-opacity cursor-pointer",
+              "hover:text-accent transition-colors cursor-pointer",
               sidebarCollapsed && "size-8 flex items-center justify-center"
             )}
           >
-            <LogOutIcon className="text-accent" />
+            <LogOutIcon />
           </button>
         </footer>
       </div>

@@ -1,23 +1,14 @@
-import { useState, useEffect } from "react";
 import clsx from "clsx";
-
-import { ROUTES_NAMES } from "../router/data";
+import { useSidebarState } from "../hooks";
 
 import Navigation from "./Navigation";
-import NavigationLink from "./NavigationLink";
 
 import ChevronLeftIcon from "../icons/ChevronLeftIcon";
+import UserIcon from "../icons/UserIcon";
 import LogOutIcon from "../icons/LogOutIcon";
 
 export default function Sidebar() {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(() => {
-    const saved = localStorage.getItem("sidebar-state");
-    return saved !== null ? JSON.parse(saved) : false;
-  });
-
-  useEffect(() => {
-    localStorage.setItem("sidebar-state", JSON.stringify(sidebarCollapsed));
-  }, [sidebarCollapsed]);
+  const [sidebarCollapsed, setSidebarCollapsed] = useSidebarState();
 
   return (
     <aside
@@ -57,12 +48,35 @@ export default function Sidebar() {
       <div className="flex flex-col flex-auto justify-between">
         <Navigation collapsed={sidebarCollapsed} />
 
-        <footer>
-          <NavigationLink to={ROUTES_NAMES.LOGIN} collapsed={sidebarCollapsed}>
-            <LogOutIcon className="text-accent" />
+        <footer className="items-center gap-x-2 grid grid-cols-[40px_1fr_auto]">
+          <span
+            className={clsx(
+              "flex justify-center items-center bg-secondary/30 rounded-full size-10",
+              sidebarCollapsed && "hidden"
+            )}
+          >
+            <UserIcon className="text-accent" />
+          </span>
 
-            <span className={clsx(sidebarCollapsed && "hidden")}>Log Out</span>
-          </NavigationLink>
+          <div
+            className={clsx(
+              "overflow-ellipsis whitespace-nowrap",
+              sidebarCollapsed && "hidden"
+            )}
+          >
+            <h2 className="font-semibold">Gogi Mockman</h2>
+
+            <p className="opacity-60 text-sm">mock@mail.com</p>
+          </div>
+
+          <button
+            className={clsx(
+              "hover:opacity-60 transition-opacity cursor-pointer",
+              sidebarCollapsed && "size-8 flex items-center justify-center"
+            )}
+          >
+            <LogOutIcon className="text-accent" />
+          </button>
         </footer>
       </div>
     </aside>

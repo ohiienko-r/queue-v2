@@ -7,7 +7,7 @@ export default function RootLayout() {
     <main className="flex gap-2 p-2 h-full">
       <Sidebar />
 
-      <section className="flex-auto bg-background-secondary p-4 rounded-xl">
+      <section className="flex flex-col flex-auto gap-2">
         <Outlet />
       </section>
     </main>

@@ -2,6 +2,8 @@ import { useNavigate } from "react-router";
 
 import { ROUTES_NAMES } from "../router/data";
 
+import { Button } from "../components";
+
 export default function NotFoundPage() {
   const navigate = useNavigate();
 
@@ -12,7 +14,7 @@ export default function NotFoundPage() {
         <p className="text-3xl">Not Found</p>
       </div>
 
-      <button onClick={() => navigate(ROUTES_NAMES.ROOT)}>Take me home</button>
+      <Button onClick={() => navigate(ROUTES_NAMES.ROOT)}>Take me home</Button>
     </section>
   );
 }

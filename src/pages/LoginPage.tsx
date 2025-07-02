@@ -1,12 +1,12 @@
+import { Input, Button } from "../components";
+
 export default function LoginPage() {
   return (
     <div className="self-center gap-4 grid w-full max-w-72">
-      <h2 className="font-bold text-xl pointer-events-none select-none">
-        Login
-      </h2>
+      <h2 className="font-bold text-3xl">Login</h2>
 
       <form
-        className="gap-2 grid"
+        className="gap-3 grid"
         onSubmit={(e) => {
           e.preventDefault();
         }}
@@ -14,7 +14,7 @@ export default function LoginPage() {
         <div className="gap-1 grid">
           <label htmlFor="email">Email</label>
 
-          <input
+          <Input
             id="email"
             type="text"
             placeholder="example@mail.com"
@@ -25,7 +25,7 @@ export default function LoginPage() {
         <div className="gap-1 grid">
           <label htmlFor="password">Password</label>
 
-          <input
+          <Input
             id="password"
             type="password"
             placeholder="********"
@@ -33,7 +33,7 @@ export default function LoginPage() {
           />
         </div>
 
-        <button type="submit">Login</button>
+        <Button type="submit">Login</Button>
       </form>
     </div>
   );

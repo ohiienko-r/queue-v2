@@ -2,10 +2,10 @@ import clsx from "clsx";
 import { useSidebarState } from "../hooks";
 
 import Navigation from "./Navigation";
+import LogOutButtonWithModal from "./LogoutButtonWithModal";
 
 import ChevronLeftIcon from "../icons/ChevronLeftIcon";
 import UserIcon from "../icons/UserIcon";
-import LogOutIcon from "../icons/LogOutIcon";
 
 export default function Sidebar() {
   const { sidebarCollapsed, setSidebarCollapsed } = useSidebarState();
@@ -69,14 +69,7 @@ export default function Sidebar() {
             <p className="opacity-60 text-sm">mock@mail.com</p>
           </div>
 
-          <button
-            className={clsx(
-              "hover:text-accent transition-colors cursor-pointer",
-              sidebarCollapsed && "size-8 flex items-center justify-center"
-            )}
-          >
-            <LogOutIcon />
-          </button>
+          <LogOutButtonWithModal collapsed={sidebarCollapsed} />
         </footer>
       </div>
     </aside>

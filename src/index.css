@@ -26,6 +26,7 @@
 #root {
   width: 100svw;
   height: 100dvh;
+  scrollbar-width: thin;
 }
 
 @theme {

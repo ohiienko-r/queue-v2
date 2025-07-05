@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Modal } from "../components";
+import { Button, Modal, CheckItem } from "../components";
 
 import PlusIcon from "../icons/PlusIcon";
 
@@ -15,7 +15,15 @@ export default function CreateItemPage() {
         </Button>
       </header>
 
-      <section className="bg-background-secondary p-4 rounded-xl h-full overflow-y-auto"></section>
+      <section className="flex flex-col gap-3 bg-background-secondary p-4 rounded-xl size-full overflow-y-auto">
+        <CheckItem />
+        <CheckItem className="self-end" />
+        <CheckItem />
+        <CheckItem />
+        <CheckItem />
+        <CheckItem />
+        <CheckItem />
+      </section>
 
       <Modal isOpen={modalVisible} onClose={() => setModalVisible(false)}>
         Hi! I am modal

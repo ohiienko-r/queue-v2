@@ -1,14 +1,30 @@
+import { useEffect } from "react";
 import clsx from "clsx";
 import { useSidebarState } from "../hooks";
 
 import Navigation from "./Navigation";
-import LogOutButtonWithModal from "./LogoutButtonWithModal";
+import LogOutButtonWithModal from "./LogOutButtonWithModal";
 
 import ChevronLeftIcon from "../icons/ChevronLeftIcon";
 import UserIcon from "../icons/UserIcon";
 
 export default function Sidebar() {
   const { sidebarCollapsed, setSidebarCollapsed } = useSidebarState();
+
+  useEffect(() => {
+    //TODO: debounce this one
+    const handleWindowResize = (e: UIEvent) => {
+      const target = e.currentTarget as Window | null;
+
+      if (!sidebarCollapsed && target && target.innerWidth < 768) {
+        setSidebarCollapsed(true);
+      }
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, [sidebarCollapsed, setSidebarCollapsed]);
 
   return (
     <aside
